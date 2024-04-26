@@ -1,0 +1,148 @@
+import operator
+import collections
+from heapq import nlargest
+from typing import Counter
+
+def zad1(dic):
+    sorted_dic = sorted(dic.items(), key=operator.itemgetter(1))
+    print(sorted_dic)
+    sorted_dic = dict( sorted(dic.items(), key=operator.itemgetter(1), reverse=True))
+    print(sorted_dic)
+
+def zad2(dic):
+    dic.update({6:9})
+    print(dic)
+
+def zad3(first_dic, another_dic, even_other_dic):
+    ultimate_dic = {}
+    for dic in (first_dic, another_dic, even_other_dic):
+        ultimate_dic.update(dic)
+    print(ultimate_dic)
+
+def zad5(dic):
+    for k, val in dic.items():
+        print(str(k) + " is the key for " + str(val))
+
+def zad4(k, dic):
+    if (k in dic):
+        print("ideed there is " + str(k) + " in our dict")
+
+def zad6(num):
+    dic = {}
+
+    for i in range(1, num + 1):
+        dic[i] = i * i
+    
+    print(dic)
+
+def zad7():
+    dic = {}
+    for i in range (1, 16):
+        dic[i] = i * i
+    print(dic)
+
+def zad8(first_dic, second_dic):
+    third_dic = {}
+    third_dic.update(first_dic)
+    third_dic.update(second_dic)
+
+    print(third_dic)
+
+def zad9(dic):
+    for k, val in dic.items():
+        print(str(k) + " is the key for " + str(val))
+
+def zad10(dic):
+    #sum = sum(dic.values())
+    #print(sum)
+    pass
+
+def zad11(dic):
+    multiplied = 1
+    for i in dic:
+        multiplied = multiplied * dic[i]
+
+def zad12(dic, to_remove):
+    del dic[to_remove]
+    print(dic)
+
+def zad13(first_list, second_list):
+    dic = dict(zip(first_list, second_list))
+    print(dic)
+
+def zad14(dic):
+    for i in sorted(dic):
+        print(i, dic[i])
+
+def zad18(dic):
+    if(bool(dic) == False):
+        print("Indeed its empty")
+    else:
+        print("Not empty")
+
+def zad19(first_dic, second_dic):
+    third_dic = Counter(first_dic, second_dic)
+    print(third_dic)
+
+def zad22(dic):
+    largest = nlargest(3, dic, key=dic.get)
+    print(largest)
+
+"""def zad23(dic):
+    res = Counter()
+
+    for val in dic:
+        res[dic["item"]] += dic["amount"]
+    print(res)
+"""
+def zad24(dic, str):
+    for char in str:
+        dic[char] = dic.get(char, 0) + 1
+    print(dic)
+
+
+
+
+
+
+
+
+    
+print("zadanie 1")
+zad1({1: 2, 3: 4, 4: 3, 2: 1, 0: 0})
+print("zadanie 2")
+zad2({1: 2, 3: 4, 4: 3, 2: 1, 0: 0})
+print("zadanie 3")
+zad3({1: 2, 3: 4, 4: 3, 2: 1, 0: 0}, {3:4, 5:88}, {1:2, 3:1})
+zad8({1: 2, 3: 4, 4: 3, 2: 1, 0: 0}, {3:4, 5:88})
+print("zadanie 4")
+zad4(1, {1: 2, 3: 4, 4: 3, 2: 1, 0: 0})
+print("zadanie 5")
+zad5({1: 2, 3: 4, 4: 3, 2: 1, 0: 0})
+print("zadanie 6")
+zad6(10)
+print("zadanie 7")
+zad7()
+print("zadanie 8")
+zad8({1:2, 3:3}, {2:2, 3:3})
+print("zadanie 9")
+zad9({1:2,3:1})
+print("zadanie 10")
+zad10({2:2,9:9,2:5})
+print("zadanie 11")
+zad11({1:6, 6:1, 8:1})
+print("zadanie 12")
+zad12({1:2, 2:1, 3:4}, 1)
+print("zadanie 13")
+zad13({1:2, 44:43, 2:2, 2:1}, {1:2, 2:2, 3:3, 4:4})
+print("zadanie 14")
+zad14({1: 2, 3: 4, 4: 3, 2: 1, 0: 0})
+print("zadanie 18")
+zad18({})
+print("zadanie 22")
+zad22({3:3, 5:5, 1:2, 5:4})
+print("zadanie 23")
+#zad23({1: 2, 3: 4, 4: 3, 2: 1, 0: 0})
+print("zadanie 24")
+zad24({1:2}, "Dezyderaty")
+
