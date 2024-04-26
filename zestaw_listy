@@ -1,0 +1,251 @@
+import random as r
+import itertools
+
+def bubble_sort(a_cool_list):
+    lenght = len(a_cool_list)
+    for i in range(lenght - 1):
+        for k in range(lenght - i - 1):
+            if (a_cool_list[k] > a_cool_list[k + 1]):
+                a_cool_list[k], a_cool_list[k + 1] = a_cool_list[k + 1] , a_cool_list[k]
+
+
+def zad1(numbers):
+    bubble_sort(numbers)
+    for i in numbers:
+        print(i, end=", ")
+    print("")
+
+def zad2(numbers):
+    # From multiply all the numbers i understand that all the elements need
+    # to be multipied with each other
+    result = 0
+    for i in range(len(numbers) ):
+        for k in range(i, len(numbers)):
+            temp_result = numbers[i] * numbers[k]
+            print("muti " + str(numbers[i]) + " and " + str(numbers[k]))
+            result = result + temp_result
+    print("result is : " + str(result))
+
+def zad3(numbers):
+    biggest = 0
+    for i in numbers:
+        if (i > biggest):
+            biggest = i
+    print(biggest)
+
+def zad4(numbers):
+    smallest = 2147483647
+    for i in numbers:
+        if (i < smallest):
+            smallest = i
+    print(smallest)
+
+def zad5(strs):
+    counter = 0
+    for stri in strs:
+        stri = stri.lower()
+        if (len(stri) < 2):
+            continue
+        first = stri[0]
+        last = stri[-1]
+        if ( first == last ):
+            counter = counter + 1
+    print(counter)
+
+def zad6(krotki):
+    sorted_krotki = sorted(krotki, key=last_krotka)
+    print(sorted_krotki)
+
+def last_krotka(tuple):
+    return tuple[-1]
+
+def zad7(shrimps):
+    check_list = []
+    duplicates = []
+    for i in shrimps:
+        if (i in check_list):
+            duplicates.append(i)
+        check_list.append(i)
+    print("Duplikates: ", end="")
+    for i in duplicates:
+        print(i, end=", ")
+    print("")
+
+def zad8(somethings):
+    if(len(somethings) == 0):
+        print("empty")
+    else:
+        print("not empty")
+
+def zad9(turtles):
+    clone = []
+    for i in turtles:
+        clone.append(i)
+    print("clone -> ", end="")
+    print(clone)
+
+def zad10(snails, n):
+    print("Longer than " + str(n) + ": ")
+    for i in snails:
+        if (len(i) > n):
+            print(i, end=", ")
+    print("")
+
+def zad11(somethings, somethings2):
+    """somethings = list(set(somethings))
+    somethings2 = list(set(somethings2))"""
+
+    for i in somethings:
+        for k in somethings2:
+            if (k == i):
+                print(True)
+
+def zad12(crabs):
+    del crabs[5]; del crabs[4]; del crabs[0]
+    for crab in crabs:
+        print(crab, end=", ")
+    print("")
+
+def zad13():
+    list_3d = []
+    for list_1d in range(3):
+        list_1d_array = []
+        for list_2d in range(4):
+            list_2d_array = []
+            for col in range(6):
+                list_2d_array.append('*')
+            list_1d_array.append(list_2d_array)
+        list_3d.append(list_1d_array)
+
+    for one_d in list_3d:
+        for two_d in one_d:
+            print(' '.join(two_d))
+        print()
+
+def zad14(ints):
+    for i in range(len(ints)):
+        if (i == 0):
+            continue
+        try:
+            if (ints[i] % 2 == 0):
+                del ints[i]
+                i = i - 1
+        except IndexError:
+            pass
+    if (ints[0] == 0):
+        del ints[0]
+
+def zad15(ints):
+    for i in range(0, len(ints)):
+        temp = ints[i]
+        random = r.randint(0, len(ints) - 1)
+        ints[i] = ints[random]
+        ints[random] = temp
+    for i in ints:
+        print(i, end=", ")
+    print("")
+
+def zad16():
+    weird_task_list =[]
+
+    for i in range(31):
+        temp = i * i
+        weird_task_list.append(temp)
+    print(weird_task_list[:5])
+    print(weird_task_list[-5:])
+
+def zad17(ints):
+    flag = True
+    for i in ints:
+        if (i == 0 or i == 1):
+            print("not all of them are prime")
+            flag = False
+            break
+        for k in range(2, i - 1):
+            if (k == i):
+                continue
+            if (i % k == 0):
+                print("not all of them are prime")
+                flag = False
+                break
+    if (flag == True):
+        print("All are prime!")
+
+def zad18(ints):
+    permutated = list(itertools.permutations(ints))
+    return permutated
+
+def zad19(ints, another_ints):
+    different_ints = []
+    for int in ints:
+        if (int not in another_ints):
+            different_ints.append(int)
+    for int in different_ints:
+        print(int)
+
+def zad20(ints):
+    for int_index, int in enumerate(ints):
+        print(int_index, int)
+
+
+                
+
+            
+        
+
+    
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+a_not_cool_list = [1,3,2,5,6,1,43,9,2,7,8,8,1,9]
+print("zadanie 1")
+zad1(a_not_cool_list)
+print("zadanie 2")
+zad2([1,2,3])
+print("zadanie 4")
+zad4(a_not_cool_list)
+print("zadanie 5")
+zad5(["Annana", "b", "e", "r", "l", "o", "Ciccic", "Dedad", "Foff", "Geg", "Hah", "Kikk", "Lell", "Non", "Xyx", "Ysy"])
+sample_list = [(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+print("zadanie 6")
+zad6(sample_list)
+print("zadanie 7")
+zad7(["Cambarus", "Atya", "Macrobrachium", "Atya", "Palaeomon", "Palaemonetes", "Macrobrachium"])
+print("zadanie 8")
+zad8([])
+print("zadanie 9")
+zad9(["Chelonia", "Testudo", "Emys", "Pelusios", "Trachemys"])
+print("zadanie 10")
+zad10(["Glutum", "Limus", "Viscidus", "Pusillus", "Gelatinosus"], 7)
+print("zadanie 11")
+zad11(["Glutum", "Limus", "Viscidus", "Pusillus", "Gelatinosus"], ["Chelonia", "Testudo", "Emys", "Pelusios", "Gelatinosus", "Trachemys"])
+print("zadanie 12")
+zad12(["Cancer", "Brachyura", "Callinectes", "Portunus", "Carcinus", "Grapsus", "Platypodiella", "Paralithodes"])
+print("zadanie 13")
+zad13()
+print("zadanie 14")
+zad14([0,1,2,3,4,5,6,7])
+print("zadanie 15")
+zad15([0,1,2,3,4,5,6,7])
+print("zadanie 16")
+zad16()
+print("zadanie 17")
+zad17([2,3,7,11])
+print("zadanie 18")
+print(zad18([2,3,7,11]))
+print("zadanie 19")
+zad19([1,2,3,4],[2,3])
+print("zadanie 20")
+zad20([1,2,3,4,66])
