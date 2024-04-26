@@ -1,0 +1,231 @@
+def zad1(str):
+    return len(str)
+def zad2(str):
+    print("{", end="")
+    check_list = [' ']
+    for c in str:
+
+        if(c in check_list):
+            continue
+        else:
+            counter = 0
+            for k in str:
+                if(k == c):
+                    counter = counter + 1
+        check_list.append(c)
+        print("'", c, "':", counter, end="")
+    print("}")
+
+
+def zad3(str):
+    if(len(str) < 2):
+        return "Empty String"
+    else:
+        output = str[:2]
+        output = output + str[-2:]
+        return output
+
+def zad4(str):
+    first_char = str[0]
+    output_list = list(str)
+    for i in range(len(str) - 1):
+        if(str[i+1] == first_char):
+            
+            output_list[i+1] = '$'
+    for c in output_list:
+        print(c, end="")
+
+def zad5(str1, str2):
+    output_string = str2[0] + str1[1:] + " " + str1[0] + str2[1:]
+    print(output_string)
+    return output_string
+
+def zad6(str):
+    if(len(str) < 3):
+        return "not enough characters"
+    output_string = str
+    if(str[-3:] == "ing"):
+        output_string = output_string + "ly"
+    else:
+        output_string = output_string + "ing"
+    print(output_string)
+
+def zad7(str):
+    # scenario one - lacks not
+    if(str.find("not") == -1):
+        return str
+    # scenario two - lacks poor
+    elif(str.find("poor") == -1):
+        return str
+    # scenario three - they both are included, but not in order
+    elif(str.find("not") > str.find("poor")):
+        return str
+    # scenario four - everything dandy
+    else:
+        starting_point = str.find("not")
+        ending_point = str.find("poor") + 4
+        operation_list = list(str)
+        insertion = ['g','o','o','d']
+        del operation_list[starting_point:ending_point]
+
+        for i in range(4):
+            operation_list.insert(starting_point + i, insertion[i])
+    for i in operation_list:
+        print(i, end=" ")
+
+def zad8(list_of_strings):
+    for i in list_of_strings:
+        counter = 0
+        longest = 0
+        word = ""
+        for c in i:
+            counter = counter + 1
+        if(counter > longest):
+            longest = counter
+            word = i
+        counter = 0
+    print(word, longest)
+
+def zad9(str, index):
+    counter = 0
+    word = ""
+    for c in str:
+        if (counter == index):
+            counter = counter + 1
+            continue
+        word = word + c
+        counter = counter + 1
+    print(word)
+
+def zad10(str):
+    #first = str[0]
+    #last = str[-1]
+    word = str[-1] + str[1:-2] + str[0]
+    print(word)
+
+def zad11(str):
+    lenght = len(str)
+    word = ""
+    for i in range(lenght):
+        if (i % 2 != 0):
+            continue
+        word = word + str[i]
+    print(word)
+
+def zad12(str):
+    words = str.split()
+    words_already_checked = []
+    for word in words:
+        if (word in words_already_checked):
+            continue
+        else:
+            words_already_checked.append(word)
+        counter = 0
+        for word_check in words:
+            if (word_check == word):
+                counter = counter + 1
+        print(word + ": ", end="")
+        print(counter, end=" ")
+        print("times!")
+
+def zad13(str):
+    print(str.lower() + "  " + str.upper())
+
+def zad14(str):
+    splitted = str.split(',')
+    splitted_sorted_stripped = []
+    for word in splitted:
+        word = word.lower()
+        word = word.strip()
+        splitted_sorted_stripped.append(word)
+    
+    splitted_sorted_stripped = sorted(splitted_sorted_stripped)
+    for word in splitted_sorted_stripped:
+        print(word)
+
+def zad15(str, html_tag):
+    print("<" + html_tag + ">" + str + "</" + html_tag + ">")
+
+def zad16(pattern, str):
+    half = (len(pattern) / 2)
+    half = int(half)
+    print(pattern[:half] + str + pattern[(half):])
+
+def zad17(str):
+    last_two = str[-2:]
+    print(last_two * 4)
+
+def zad18(str):
+    first_three = str[:3]
+    print(first_three)
+
+def zad19(str, specified_character):
+    counter = 0
+    current = str[0]
+    while(current != specified_character):
+        print(str[counter])
+        counter = counter + 1
+        current = str[counter]
+
+def zad20(str):
+    lenght = len(str)
+    if (lenght % 4 == 0):
+        for i in range(lenght):
+            if (i == 0):
+                continue
+            i = i * -1
+            print(str[i], end='')
+        print(str[0])
+        
+    else:
+        print(str)
+
+
+
+
+
+
+
+print("zadanie 1")
+zad1("Hello World")    
+print("zadanie 2")          
+zad2("Echinodorus bleheri")
+print("zadanie 3")
+print(zad3("Microsorum pteropus"))
+print("zadanie 4")
+zad4("Taxiphyllum barbieri")
+print("zadanie 5")
+zad5("Ceratopteris", "thalictroides")
+print("zadanie 6")
+zad6("Aspen Quaking")
+print("zadanie 7")         
+zad7("not too damn poor")
+strs = {"Pistia stratiotes", "Ceratophyllum demersum", "Vallisneria gigantea", "Lemna minor)"}
+print("zadanie 8")
+zad8(strs)
+print("zadanie 9")
+zad9("dwarf white isopods", 9)
+print("zadanie 10")
+zad10("ramshorn snails")
+print("zadanie 11")
+zad11("Echinodorus")
+print("zadanie 12")
+zad12("Genus Scolymia is one of the most beloved types of large polyp stony corals")
+print("zadanie 13")
+zad13("Favia is a genus of corals also referred to as Brain Coral")
+print("zadanie 14")
+zad14("Rainbow, Bubble, Tip, Anemone")
+print("zadanie 15")
+zad15("Mystery frog", 'p')
+print("zadanie 16")
+zad16("{{}}", "black crazy ant")
+print("zadanie 17")
+zad17("velociraptor")
+print("zadanie 18")
+zad18("velociraptor")
+print("zadanie 19")
+zad19("velociraptor", 't')
+print("zadanie 20")
+zad20("velociraptor")
+
+
